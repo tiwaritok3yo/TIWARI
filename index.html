@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Raj - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --primary-accent: #ff00ff;
+            --secondary-accent: #00ffff;
+            --hover-glow: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --text-color: #f5f5f5;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease;
+        }
+
+        .portfolio-container {
+            border: 2px solid;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+            box-shadow: 0 0 15px var(--hover-glow);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 90%;
+            margin: 2rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid #334155;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px var(--hover-glow);
+        }
+
+        .section-title {
+            color: #fff;
+            background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-image {
+            border-radius: 4px;
+        }
+
+        .divider {
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent));
+            margin: 4rem auto;
+            border-radius: 1px;
+        }
+        
+        /* New hover effect for icons */
+        .contact-icon {
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+            color: #fff;
+        }
+        .contact-icon:hover {
+            transform: scale(1.1);
+            color: var(--hover-glow);
+        }
+
+        /* Message box styling */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: none;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .message-box.show {
+            display: block;
+        }
+
+        .location-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        /* Hidden dog photo */
+        .hidden-image-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            display: none;
+            text-align: center;
+        }
+        .hidden-image-container.show {
+            display: block;
+        }
+
+        /* Dog GIF container */
+        .dog-gif-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+        .dog-gif-container.show {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-[--bg-color] text-white font-inter leading-relaxed">
+    <div class="portfolio-container">
+        <!-- The orb and its animations have been removed from here -->
+
+        <main class="container mx-auto px-4 py-16 max-w-7xl">
+
+            <!-- Header/Hero Section -->
+            <header class="text-center mb-16 pt-12">
+                <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest">Digital Creator & Designer</p>
+                <h1 id="main-title" class="text-6xl md:text-8xl font-bold tracking-tight text-white mt-2 mb-4 section-title cursor-pointer" onclick="showDogEasterEgg()">
+                    Sahil Raj
+                </h1>
+                <p id="about-me-text" class="text-base text-gray-300 max-w-2xl mx-auto">
+                    I'm a digital creator who masterfully blends creative vision with strategic execution. With a passion for clean, impactful visuals, I translate abstract concepts into tangible designs that grab attention. But I don't just create; I deliver. I excel at managing complex projects, navigating timelines, and uniting teams to turn ambitious ideas into reality. I'm the one who sees both the big picture and the fine details, ensuring every project is not just beautiful, but perfectly executed.
+                </p>
+                <button onclick="showDogInterns()" class="mt-6 px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 transition-transform duration-300">
+                    Meet My Interns
+                </button>
+            </header>
+
+            <!-- Projects Section -->
+            <section class="mb-16">
+                <h2 class="text-4xl font-bold text-center mb-8 section-title">My Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="portfolio-card cursor-pointer" onclick="showWorkInProgress()">
+                        <img src="https://placehold.co/800x600/ccc/fff?text=Project+1+Preview" alt="Project 1 preview" class="card-image w-full mb-4">
+                        <h3 class="text-2xl font-semibold text-white">E-commerce Platform</h3>
+                        <p class="mt-2 text-gray-300">
+                            A responsive e-commerce site with full cart and checkout functionality.
+                        </p>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="portfolio-card cursor-pointer" onclick="showWorkInProgress()">
+                        <img src="https://placehold.co/800x600/ccc/fff?text=Project+2+Preview" alt="Project 2 preview" class="card-image w-full mb-4">
+                        <h3 class="text-2xl font-semibold text-white">Data Visualization Dashboard</h3>
+                        <p class="mt-2 text-gray-300">
+                            An interactive dashboard to visualize complex datasets with charts and graphs.
+                        </p>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="portfolio-card cursor-pointer" onclick="showWorkInProgress()">
+                        <img src="https://placehold.co/800x600/ccc/fff?text=Project+3+Preview" alt="Project 3 preview" class="card-image w-full mb-4">
+                        <h3 class="text-2xl font-semibold text-white">Social Media App</h3>
+                        <p class="mt-2 text-gray-300">
+                            A modern social media application with real-time chat and user profiles.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Sketching Section -->
+            <section class="mb-16">
+                <h2 class="text-4xl font-bold text-center mb-8 section-title">Sketching</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Sketch 1 -->
+                    <div class="portfolio-card cursor-pointer" onclick="showWorkInProgress()">
+                        <img src="https://placehold.co/800x600/ccc/fff?text=Sketch+1" alt="Sketch 1" class="card-image w-full mb-4">
+                        <h3 class="text-2xl font-semibold text-white">Urban Landscape</h3>
+                        <p class="mt-2 text-gray-300">
+                            A detailed ink drawing of a bustling city street.
+                        </p>
+                    </div>
+                    <!-- Sketch 2 -->
+                    <div class="portfolio-card cursor-pointer" onclick="showWorkInProgress()">
+                        <img src="https://placehold.co/800x600/ccc/fff?text=Sketch+2" alt="Sketch 2" class="card-image w-full mb-4">
+                        <h3 class="text-2xl font-semibold text-white">Character Concept</h3>
+                        <p class="mt-2 text-gray-300">
+                            A concept sketch for a futuristic character design.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Brand Logos Section -->
+            <section class="mb-16">
+                <h2 class="text-4xl font-bold text-center mb-8 section-title">Brand Logos</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Brand Logo 1 -->
+                    <div class="portfolio-card cursor-pointer" onclick="showWorkInProgress()">
+                        <img src="https://placehold.co/800x600/ccc/fff?text=Logo+1" alt="Brand logo 1" class="card-image w-full mb-4">
+                        <h3 class="text-2xl font-semibold text-white">Minimalist Tech Logo</h3>
+                        <p class="mt-2 text-gray-300">
+                            A clean and simple logo designed for a new tech startup.
+                        </p>
+                    </div>
+                    <!-- Brand Logo 2 -->
+                    <div class="portfolio-card cursor-pointer" onclick="showWorkInProgress()">
+                        <img src="https://placehold.co/800x600/ccc/fff?text=Logo+2" alt="Brand logo 2" class="card-image w-full mb-4">
+                        <h3 class="text-2xl font-semibold text-white">Coffee Shop Emblem</h3>
+                        <p class="mt-2 text-gray-300">
+                            A classic, vintage-inspired emblem for a local coffee shop.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <!-- Contact Section -->
+            <section class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 section-title">Get in Touch</h2>
+                <div class="flex justify-center items-center gap-6 text-gray-800 text-lg">
+                    <!-- Email Icon -->
+                    <a href="mailto:tiwarisssahil@gmail.com" class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <!-- Phone Icon -->
+                    <a href="tel:+919540026244" class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8">
+                            <path d="M5 2c-1.104 0-2 .896-2 2v16c0 1.104.896 2 2 2h14c1.104 0 2-.896 2-2V4c0-1.104-.896-2-2-2H5z"></path>
+                            <path d="M12 18h.01"></path>
+                        </svg>
+                    </a>
+                    <!-- LinkedIn Icon -->
+                    <a href="https://www.linkedin.com/in/tiwarirajsahil" target="_blank" class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.763s.784-1.763 1.75-1.763 1.75.79 1.75 1.763-.783 1.763-1.75 1.763zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <!-- Location Icon -->
+                    <a href="#" class="contact-icon" onclick="showLocation(event)">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Work in Progress Modal -->
+    <div id="wip-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-800 rounded-lg p-6 max-w-sm w-full text-center border-2 border-white">
+            <h3 class="text-3xl font-bold mb-4 section-title">Work in Progress</h3>
+            <p class="text-gray-300 mb-6">
+                This section is still being developed. Check back soon for updates!
+            </p>
+            <button onclick="hideWorkInProgress()" class="mt-6 px-6 py-2 text-sm font-semibold text-white bg-red-600 rounded-full">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Location Message Box -->
+    <div id="location-message" class="message-box">
+        <div id="location-content" class="mb-4">
+            <img id="location-image" src="https://media.giphy.com/media/xT5LMPYnS70a5c4gSs/giphy.gif" alt="Homer Simpson driving" class="location-image">
+        </div>
+        <button onclick="hideLocationMessage()" class="px-4 py-2 text-sm font-semibold text-white bg-black rounded-full">
+            Close
+        </button>
+    </div>
+
+    <!-- Hidden Dog Easter Egg -->
+    <div id="dog-easter-egg" class="hidden-image-container">
+        <h3 class="text-2xl font-bold mb-4">You found a friend!</h3>
+        <img src="https://media.giphy.com/media/3o7TKSjYQk3kO7q0kE/giphy.gif" alt="A cute dog" class="w-full h-auto rounded-lg mb-4">
+        <p class="text-sm text-gray-400">Woof!</p>
+        <button onclick="hideDogEasterEgg()" class="px-4 py-2 text-sm font-semibold text-white bg-gray-800 rounded-full mt-4">
+            Close
+        </button>
+    </div>
+
+    <!-- Dog Interns Modal -->
+    <div id="dog-interns-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50">
+        <div class="bg-gray-800 rounded-lg p-6 max-w-2xl w-full text-center border-2 border-white">
+            <h3 class="text-3xl font-bold mb-4 section-title">Meet My Interns</h3>
+            <p class="text-gray-300 mb-6">
+                These two incredible souls are my chief morale officers and most dedicated collaborators. They've taught me more about unconditional support and joy than any textbook ever could. Their enthusiasm is my daily fuel, and they remind me to find the simple magic in every project. Their presence grounds my work and fills my life with purpose.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <img src="https://drive.google.com/uc?export=view&id=1AA432qo6-BceRxiYcg4vbkR4ICpEBtwn" alt="Sahil with dogs" class="w-full h-auto rounded-lg">
+                <img src="https://drive.google.com/uc?export=view&id=1E9QFionJwuQk5QZ4DclBXvoFQdvrLSUb" alt="Dog 1" class="w-full h-auto rounded-lg">
+                <img src="https://drive.google.com/uc?export=view&id=1FvhNX28uBXe74Ce9AU8ix70TAM_kncp8" alt="Sahil with golden retriever" class="w-full h-auto rounded-lg">
+                <img src="https://drive.google.com/uc?export=view&id=1N52rRaCdi-S2oaYnUEPQhvPfaz5BqMED" alt="Dog 2" class="w-full h-auto rounded-lg">
+                <img src="https://drive.google.com/uc?export=view&id=1cYcAfrkhmysHbBWd7qqF2toMOfL6Evj5" alt="Dog 3" class="w-full h-auto rounded-lg">
+                <img src="https://drive.google.com/uc?export=view&id=1oL2usVF5wzRBxvH4sL1eihDq15-CA_JQ" alt="Dog 4" class="w-full h-auto rounded-lg">
+            </div>
+            <button onclick="hideDogInterns()" class="mt-6 px-6 py-2 text-sm font-semibold text-white bg-red-600 rounded-full">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function showWorkInProgress() {
+            const wipModal = document.getElementById('wip-modal');
+            wipModal.classList.remove('hidden');
+        }
+
+        function hideWorkInProgress() {
+            const wipModal = document.getElementById('wip-modal');
+            wipModal.classList.add('hidden');
+        }
+
+        function showLocation(event) {
+            event.preventDefault();
+            const messageBox = document.getElementById('location-message');
+            messageBox.classList.add('show');
+        }
+
+        function hideLocationMessage() {
+            const messageBox = document.getElementById('location-message');
+            messageBox.classList.remove('show');
+        }
+
+        function showDogEasterEgg() {
+            const dogEgg = document.getElementById('dog-easter-egg');
+            dogEgg.classList.add('show');
+        }
+
+        function hideDogEasterEgg() {
+            const dogEgg = document.getElementById('dog-easter-egg');
+            dogEgg.classList.remove('show');
+        }
+        
+        function showDogInterns() {
+            const dogModal = document.getElementById('dog-interns-modal');
+            dogModal.classList.remove('hidden');
+        }
+
+        function hideDogInterns() {
+            const dogModal = document.getElementById('dog-interns-modal');
+            dogModal.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
