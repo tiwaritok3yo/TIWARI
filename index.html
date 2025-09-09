@@ -161,34 +161,33 @@
         <button onclick="showDogInterns()" class="btn btn-primary mt-6">Meet My Interns</button>
       </header>
 
-      <section id="projects" class="mb-16">
+  <section id="projects" class="mb-16">
   <h2 class="text-4xl font-bold text-center mb-8 section-title">My Projects</h2>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="project-card">
-      <img src="https://i.postimg.cc/9Fj9jdxr/sawariya-logo.png" alt="Sawariya Studio Website" loading="lazy">
+    <div class="portfolio-card cursor-pointer" onclick="window.open('https://sawariyastudio.site', '_blank')">
+      <img src="https://i.postimg.cc/9Fj9jdxr/sawariya-logo.png" alt="Sawariya Studio" class="rounded w-full mb-4" loading="lazy">
       <div class="p-6">
-        <h3><span class="text-xl font-semibold">Sawariya Studio Website</span></h3>
+        <h3><span class="text-xl font-semibold">Sawariya Studio</span></h3>
         <p class="text-gray-400">As the frontend developer for this project, I was responsible for the responsive UI/UX design and implementation. I also created the brand's logo, ensuring it was a scalable and memorable identity for the website and other brand assets.</p>
-        <a href="https://sawariyastudio.site" class="mt-4 inline-block text-blue-400 hover:text-blue-500" target="_blank">View Project &rarr;</a>
       </div>
     </div>
     <div class="portfolio-card cursor-pointer" onclick="window.open('https://embed.figma.com/design/5sQGLiyXrRPeey6zi6bx3C/washy-wash-prototype?node-id=0-1&embed-host=share', '_blank')">
       <img src="https://i.postimg.cc/KvN7qVXJ/washywash-logo.png" alt="Washy Wash App Design" class="rounded w-full mb-4" loading="lazy">
-      <h3 class="text-2xl font-semibold text-white">Washy Wash App Design</h3>
-      <p class="mt-2 text-gray-300">A full UI/UX design and prototype for a modern laundry service app.</p>
-    </div>
-    <div class="portfolio-card cursor-pointer" onclick="showWorkInProgress()">
-      <img src="https://placehold.co/800x600/ccc/fff?text=Project+2+Preview" alt="Data Visualization Dashboard Preview" class="rounded w-full mb-4" loading="lazy">
-      <h3 class="text-2xl font-semibold text-white">Data Visualization Dashboard</h3>
-      <p class="mt-2 text-gray-300">An interactive dashboard to visualize complex datasets with charts and graphs.</p>
+      <div class="p-6">
+        <h3><span class="text-2xl font-semibold">Washy Wash App Design</span></h3>
+        <p class="mt-2 text-gray-300">A full UI/UX design and prototype for a modern laundry service app.</p>
+      </div>
     </div>
     <div class="portfolio-card cursor-pointer" onclick="showWorkInProgress()">
       <img src="https://placehold.co/800x600/ccc/fff?text=Project+3+Preview" alt="Social Media App Preview" class="rounded w-full mb-4" loading="lazy">
-      <h3 class="text-2xl font-semibold text-white">Social Media App</h3>
-      <p class="mt-2 text-gray-300">A modern social media application with real-time chat and user profiles.</p>
+      <div class="p-6">
+        <h3><span class="text-2xl font-semibold">Social Media App</span></h3>
+        <p class="mt-2 text-gray-300">A modern social media application with real-time chat and user profiles.</p>
+      </div>
     </div>
   </div>
 </section>
+
 
       <div class="divider"></div>
 
@@ -369,6 +368,7 @@
   </script>
 </body>
 </html>
+
 
 
 
